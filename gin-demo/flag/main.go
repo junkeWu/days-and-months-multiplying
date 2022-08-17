@@ -13,13 +13,13 @@ func main() {
 
 	fmt.Println("-----------------------")
 	flag.Parse() // 解析参数
-	fmt.Printf("%s:%d\n", host, port)
+	fmt.Printf("%s:%d\n", host, portG)
 }
 
 var host string
-var port int
+var portG int
 
 func init() { // 每个文件会自动执行的函数
 	flag.StringVar(&host, "host", "127.0.0.1", "请输入host地址")
-	flag.IntVar(&port, "port", 3306, "请输入端口号")
+	flag.IntVar(&portG, "portG", 3306, "请输入端口号")
 }
