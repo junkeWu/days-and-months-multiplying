@@ -10,12 +10,13 @@ import (
 var wg sync.WaitGroup
 
 func main() {
-	cancel, cancelFunc := context.WithCancel(context.Background())
+	// cancel, cancelFunc := context.WithCancel(context.Background())
+	cancel, _ := context.WithTimeout(context.Background(), time.Second*3)
 	wg.Add(1)
 	go worker(cancel)
-	time.Sleep(time.Second * 2)
-	cancelFunc()
+	// time.Sleep(time.Second * 2)
 	wg.Wait()
+	// cancelFunc()
 	fmt.Println("over")
 }
 
